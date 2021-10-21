@@ -7,18 +7,21 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: 'work'
+    label: 'Work'
+    folder: 'content/work'
     create: true
     slug: 'index'
     media_folder: ''
     public_folder: ''
     path: '{{title}}/index'
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
+      - { label: 'Year', name: 'year', widget: 'datetime' }
+      - { label: 'Role', name: 'role', widget: 'string' }
+      - { label: 'Site', name: 'site', widget: 'string' }
+      - { label: 'For', name: 'for', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
