@@ -6,6 +6,16 @@ module.exports = {
   plugins: [
     "gatsby-plugin-netlify-cms",
     "gatsby-plugin-styled-components",
+    {
+      resolve: `gatsby-plugin-google-fonts-v2`,
+      options: {
+        fonts: [
+          {family: 'Poppins', weights: ['400', '700']},
+          {family: 'PT Serif', weights: ['300..700']}
+        ],
+        display: 'swap'
+      }
+    },
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",
@@ -13,8 +23,22 @@ module.exports = {
         trackingId: "test",
       },
     },
-    "gatsby-plugin-react-helmet",
-    "gatsby-transformer-remark",
+    "gatsby-plugin-react-helmet",    
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          'gatsby-remark-relative-images',
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1690,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -28,10 +52,10 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        name: "work",
+        path: `${__dirname}/content/work`,
       },
-      __key: "pages",
+      __key: "work",
     },
   ],
 };
